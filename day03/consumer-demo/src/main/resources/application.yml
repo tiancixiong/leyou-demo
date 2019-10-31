@@ -1,0 +1,33 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: consumer # \u5E94\u7528\u540D\u79F0
+  cloud:
+    loadbalancer:
+      retry:
+        enabled: true # \u5F00\u542FSpring Cloud\u7684\u91CD\u8BD5\u529F\u80FD
+eureka:
+  client:
+    service-url: # EurekaServer\u5730\u5740,\u591A\u4E2A\u5730\u5740\u4EE5','\u9694\u5F00
+      defaultZone: http://127.0.0.1:10086/eureka,http://127.0.0.1:10087/eureka
+  instance:
+    prefer-ip-address: true # \u5F53\u5176\u5B83\u670D\u52A1\u83B7\u53D6\u5730\u5740\u65F6\u63D0\u4F9Bip\u800C\u4E0D\u662Fhostname
+    ip-address: 127.0.0.1 # \u6307\u5B9A\u81EA\u5DF1\u7684ip\u4FE1\u606F\uFF0C\u4E0D\u6307\u5B9A\u7684\u8BDD\u4F1A\u81EA\u5DF1\u5BFB\u627E
+    registry-fetch-interval-seconds: 5 # \u62C9\u53D6\u9891\u7387
+#
+user-service:
+  ribbon:
+    # NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule # Ribbon\u8D1F\u8F7D\u5747\u8861\u7B56\u7565-\u968F\u673A
+    ConnectTimeout: 250 # Ribbon\u7684\u8FDE\u63A5\u8D85\u65F6\u65F6\u95F4
+    ReadTimeout: 1000 # Ribbon\u7684\u6570\u636E\u8BFB\u53D6\u8D85\u65F6\u65F6\u95F4
+    OkToRetryOnAllOperations: true # \u662F\u5426\u5BF9\u6240\u6709\u64CD\u4F5C\u90FD\u8FDB\u884C\u91CD\u8BD5
+    MaxAutoRetriesNextServer: 1 # \u5207\u6362\u5B9E\u4F8B\u7684\u91CD\u8BD5\u6B21\u6570
+    MaxAutoRetries: 1 # \u5BF9\u5F53\u524D\u5B9E\u4F8B\u7684\u91CD\u8BD5\u6B21\u6570
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMillisecond: 6000 # \u8BBE\u7F6Ehystrix\u7684\u8D85\u65F6\u65F6\u95F4\u4E3A6000ms
