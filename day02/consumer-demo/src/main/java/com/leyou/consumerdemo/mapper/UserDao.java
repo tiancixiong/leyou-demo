@@ -1,6 +1,6 @@
-package com.leyou.userservice.mapper;
+package com.leyou.consumerdemo.mapper;
 
-import com.leyou.userservice.pojo.User;
+import com.leyou.consumerdemo.pojo.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;

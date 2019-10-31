@@ -1,8 +1,8 @@
-package com.leyou.userservice.service.impl;
+package com.leyou.consumerdemo.service.impl;
 
-import com.leyou.userservice.mapper.UserDao;
-import com.leyou.userservice.pojo.User;
-import com.leyou.userservice.service.UserService2;
+import com.leyou.consumerdemo.mapper.UserDao;
+import com.leyou.consumerdemo.pojo.User;
+import com.leyou.consumerdemo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,7 +15,7 @@ import java.util.List;
  * @Date: Created in 2019-10-31 8:41
  */
 @Service
-public class UserServiceImpl2 implements UserService2 {
+public class UserServiceImpl implements UserService {
     @Autowired
     private UserDao userDao;
 

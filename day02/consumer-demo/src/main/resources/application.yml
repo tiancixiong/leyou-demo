@@ -1,0 +1,12 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: consumer # \u5E94\u7528\u540D\u79F0
+eureka:
+  client:
+    service-url: # EurekaServer\u5730\u5740
+      defaultZone: http://127.0.0.1:10086/eureka
+  instance:
+    prefer-ip-address: true # \u5F53\u5176\u5B83\u670D\u52A1\u83B7\u53D6\u5730\u5740\u65F6\u63D0\u4F9Bip\u800C\u4E0D\u662Fhostname
+    ip-address: 127.0.0.1 # \u6307\u5B9A\u81EA\u5DF1\u7684ip\u4FE1\u606F\uFF0C\u4E0D\u6307\u5B9A\u7684\u8BDD\u4F1A\u81EA\u5DF1\u5BFB\u627E
