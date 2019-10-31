@@ -1,11 +1,13 @@
 server:
   port: 10086 # 端口
+#  port: 10087 # 端口
 spring:
   application:
     name: eureka-server # 应用名称，会在Eureka中显示
 eureka:
+  server:
+    enable-self-preservation: false # 关闭自我保护模式（缺省为打开）
+    eviction-interval-timer-in-ms: 1000 # 扫描失效服务的间隔时间（缺省为60*1000ms）
   client:
-    register-with-eureka: false # 是否注册自己的信息到EurekaServer，默认是true
-    fetch-registry: false # 是否拉取其它服务的信息，默认是true
-    service-url: # EurekaServer的地址，现在是自己的地址，如果是集群，需要加上其它Server的地址。
-      defaultZone: http://127.0.0.1:${server.port}/eureka
+    service-url: # 配置其他Eureka服务的地址，而不是自己，比如10087
+      defaultZone: http://127.0.0.1:10087/eureka
