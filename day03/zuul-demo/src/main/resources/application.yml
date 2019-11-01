@@ -7,6 +7,20 @@ zuul:
   prefix: /api # \u6DFB\u52A0\u8DEF\u7531\u524D\u7F00
   routes:
     user-service: /user-service/** # \u8FD9\u91CC\u662F\u6620\u5C04\u8DEF\u5F84
+  retryable: true
+ribbon:
+  ConnectTimeout: 250 # \u8FDE\u63A5\u8D85\u65F6\u65F6\u95F4(ms)
+  ReadTimeout: 2000 # \u901A\u4FE1\u8D85\u65F6\u65F6\u95F4(ms)
+  OkToRetryOnAllOperations: true # \u662F\u5426\u5BF9\u6240\u6709\u64CD\u4F5C\u91CD\u8BD5
+  MaxAutoRetriesNextServer: 2 # \u540C\u4E00\u670D\u52A1\u4E0D\u540C\u5B9E\u4F8B\u7684\u91CD\u8BD5\u6B21\u6570
+  MaxAutoRetries: 1 # \u540C\u4E00\u5B9E\u4F8B\u7684\u91CD\u8BD5\u6B21\u6570
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMillisecond: 6000 # \u7194\u65AD\u8D85\u65F6\u65F6\u957F\uFF1A6000ms
 eureka:
   client:
     registry-fetch-interval-seconds: 5 # \u83B7\u53D6\u670D\u52A1\u5217\u8868\u7684\u5468\u671F\uFF1A5s
