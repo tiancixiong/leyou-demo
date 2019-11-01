@@ -46,6 +46,12 @@
             <version>1.16.18</version>
             <scope>provided</scope>
         </dependency>
+
+        <!-- Eureka -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
     </dependencies>
 
     <!-- SpringCloud的依赖 -->
