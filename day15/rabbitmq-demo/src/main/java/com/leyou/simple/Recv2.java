@@ -10,10 +10,10 @@ import com.rabbitmq.client.Envelope;
 import java.io.IOException;
 
 /**
- * 消费者,手动进行ACK
+ * 基本消息模型-消费者,手动进行ACK
  */
 public class Recv2 {
-    private final static String QUEUE_NAME = "simple_queue";
+    private final static String QUEUE_NAME = "simple_queue_test";
 
     public static void main(String[] argv) throws Exception {
         // 获取到连接
@@ -27,7 +27,7 @@ public class Recv2 {
             // 获取消息，并且处理，这个方法类似事件监听，如果有消息的时候，会被自动调用
             @Override
             public void handleDelivery(String consumerTag, Envelope envelope, BasicProperties properties,
-                    byte[] body) throws IOException {
+                                       byte[] body) throws IOException {
                 // body 即消息体
                 String msg = new String(body);
                 System.out.println(" [x] received : " + msg + "!");

@@ -5,11 +5,11 @@ import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 
 /**
- * 生产者
+ * 基本消息模型-生产者
  */
 public class Send {
 
-    private final static String QUEUE_NAME = "simple_queue";
+    private final static String QUEUE_NAME = "simple_queue_test";
 
     public static void main(String[] argv) throws Exception {
         // 获取到连接

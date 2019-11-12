@@ -5,7 +5,7 @@ import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 
 /**
- * 生产者，模拟为商品服务
+ * 订阅模型(Topic)-生产者，模拟为商品服务
  */
 public class Send {
     private final static String EXCHANGE_NAME = "topic_exchange_test";
@@ -19,7 +19,7 @@ public class Send {
         channel.exchangeDeclare(EXCHANGE_NAME, "topic");
         // 消息内容
         String message = "新增商品 : id = 1001";
-        // 发送消息，并且指定routing key 为：insert ,代表新增商品
+        // 发送消息，并且指定routing key 为：insert-新增商品、update-更新商品、delete-删除商品
         channel.basicPublish(EXCHANGE_NAME, "item.insert", null, message.getBytes());
         System.out.println(" [商品服务：] Sent '" + message + "'");
 

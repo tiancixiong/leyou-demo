@@ -10,7 +10,7 @@ import com.rabbitmq.client.Envelope;
 import java.io.IOException;
 
 /**
- * 消费者1
+ * 订阅模型(Fanout)-消费者1
  */
 public class Recv {
     private final static String QUEUE_NAME = "fanout_exchange_queue_1";

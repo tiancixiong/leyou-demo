@@ -4,6 +4,9 @@ import com.leyou.util.ConnectionUtil;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 
+/**
+ * 订阅模型(Fanout)-生产者
+ */
 public class Send {
 
     private final static String EXCHANGE_NAME = "fanout_exchange_test";

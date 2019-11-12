@@ -10,7 +10,7 @@ import com.rabbitmq.client.Envelope;
 import java.io.IOException;
 
 /**
- * 消费者2
+ * 订阅模型(Direct)-消费者2
  */
 public class Recv2 {
     private final static String QUEUE_NAME = "direct_exchange_queue_2";

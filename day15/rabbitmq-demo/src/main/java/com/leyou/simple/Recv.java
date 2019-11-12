@@ -10,10 +10,10 @@ import com.rabbitmq.client.Envelope;
 import java.io.IOException;
 
 /**
- * 消费者
+ * 基本消息模型-消费者
  */
 public class Recv {
-    private final static String QUEUE_NAME = "simple_queue";
+    private final static String QUEUE_NAME = "simple_queue_test";
 
     public static void main(String[] argv) throws Exception {
         // 获取到连接
@@ -30,6 +30,7 @@ public class Recv {
                     byte[] body) throws IOException {
                 // body 即消息体
                 String msg = new String(body);
+                // int i = 1 / 0;
                 System.out.println(" [x] received : " + msg + "!");
             }
         };
